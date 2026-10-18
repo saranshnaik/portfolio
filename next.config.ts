@@ -8,6 +8,10 @@ const nextConfig: NextConfig = {
   ...(isStaticExport && {
     output: "export",
     images: { unoptimized: true },
+    // basePath must match your GitHub repo name so assets resolve correctly
+    // e.g. repo "portfolio" → site at /portfolio/ → assets at /portfolio/_next/...
+    // Set PAGES_BASE_PATH in the workflow, or remove basePath if using a custom domain
+    basePath: process.env.PAGES_BASE_PATH || "",
   }),
 };
 
